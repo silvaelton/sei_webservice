@@ -1,5 +1,12 @@
-require 'sei_webservice/version'
 require 'gem_config'
+require 'savon'
+require 'open-uri'
+
+require 'sei_webservice/connect'
+require 'sei_webservice/operation'
+require 'sei_webservice/service'
+require 'sei_webservice/format'
+require 'sei_webservice/version'
 
 module SeiWebservice
   include GemConfig::Base
@@ -8,7 +15,7 @@ module SeiWebservice
     has :wsdl, classes: String
     has :follow_redirects
     has :pretty_print_xml
-    has :acron, classes: String
-    has :id, classes: String
+    has :sigla, classes: String
+    has :servico, classes: String
   end
 end
