@@ -6,5 +6,5 @@ module SeiWebservice
       @servico  = SeiWebservice.configuration.servico
     end
 
-  end
+  end  
 end

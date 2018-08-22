@@ -3,6 +3,7 @@ PATH
   specs:
     sei_webservice (0.1.0)
       gem_config (~> 0.3.1)
+      prawn
       savon (~> 2.12.0)
 
 GEM
@@ -23,6 +24,10 @@ GEM
     nokogiri (1.8.4)
       mini_portile2 (~> 2.3.0)
     nori (2.6.0)
+    pdf-core (0.7.0)
+    prawn (2.2.2)
+      pdf-core (~> 0.7.0)
+      ttfunk (~> 1.5)
     rack (2.0.5)
     rake (10.5.0)
     savon (2.12.0)
@@ -34,6 +39,7 @@ GEM
       nori (~> 2.4)
       wasabi (~> 3.4)
     socksify (1.7.1)
+    ttfunk (1.5.1)
     wasabi (3.5.0)
       httpi (~> 2.0)
       nokogiri (>= 1.4.2)

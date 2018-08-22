@@ -26,5 +26,6 @@ Gem::Specification.new do |spec|
   
   spec.add_runtime_dependency "gem_config", "~> 0.3.1"
   spec.add_runtime_dependency "savon", "~> 2.12.0"
+  spec.add_runtime_dependency "prawn", "~> 2.2.2"
 
 end

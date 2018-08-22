@@ -1,16 +1,6 @@
 module SeiWebservice
   class Operation < Connect
     attr_accessor :response, :response_format
-    
-    def unit_list 
-      params = {
-        SiglaSistema: @acron,
-        IdentificacaoServico: @service
-      }
-      
-      client.call(:listar_unidades, message: params)
-    end
-
     # => Parametros
     # :id_tipo_procedimento
     # :especificacao
@@ -58,6 +48,7 @@ module SeiWebservice
     # :conteudo
     # :conteudo_mtom
     # :nivel_acesso
+
     def incluir_documento(args = {})
       documento_params = {
         Tipo: args[:tipo] ||= nil,

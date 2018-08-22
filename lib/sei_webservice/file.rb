@@ -8,17 +8,18 @@ module SeiWebservice
       @file       = set_file
     end
 
-    def to_base64
-    end
-
     def image_to_pdf
+      pdf = Prawn::Document.new
+      pdf.image @file, fit: [600,600], position: :center
+    rescue Exception => e
+      p e
     end
 
     private
 
     def set_file
-      open(URI.parse(@url))
-    rescue Expection => e
+      open(URI.parse(@file_url))
+    rescue Exception => e
       raise e
     end
 
