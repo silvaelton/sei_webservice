@@ -13,9 +13,9 @@ module SeiWebservice
         IdTipoProcedimento: args[:id_tipo_procedimento] ||= nil,
         Especificacao: args[:especificacao] ||= nil,
         Assuntos: nil,
-        Interessados: nil,
+        Interessados: args[:interessado] ||= nil,
         Observacao: args[:observacao] ||= nil,
-        NivelAcesso: args[:nivel_accesso] ||= nil
+        NivelAcesso: args[:nivel_acesso] ||= nil
       }
     
       params = {
@@ -63,7 +63,7 @@ module SeiWebservice
         Observacao: args[:observacao] ||= nil,
         NomeArquivo: args[:nome_arquivo] ||= nil,
         Conteudo: args[:conteudo] ||= nil,
-        ConteudoMTOM: args[:conteudo_mtom] ||= nil,
+        #ConteudoMTOM: args[:conteudo_mtom] ||= nil,
         NivelAcesso: args[:nivel_acesso] ||= nil,
       }
 
@@ -74,7 +74,8 @@ module SeiWebservice
         Documento: documento_params
       }
 
-       @response = client.call(:incluir_documento, message: params)
+      @response = client.call(:incluir_documento, message: params)
+      @response_format = SeiWebservice::Format.incluir_documento(@response.body)
     end
   end
 end
