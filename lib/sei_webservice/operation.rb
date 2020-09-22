@@ -19,6 +19,7 @@ module SeiWebservice
       }
     
       params = {
+        Sistema: @sigla,
         SiglaSistema: @sigla,
         IdentificacaoServico: @servico,
         IdUnidade: args[:id_unidade] ||= nil,
@@ -69,6 +70,7 @@ module SeiWebservice
 
       params = {
         SiglaSistema: @sigla,
+        Sistema: @sigla,
         IdentificacaoServico: @servico,
         IdUnidade: args[:id_unidade] ||= nil,
         Documento: documento_params
