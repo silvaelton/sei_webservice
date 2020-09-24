@@ -10,28 +10,27 @@ module SeiWebservice
 
     def gerar_procedimento(args = {})      
       procedimento_params = {
-        IdTipoProcedimento: args[:id_tipo_procedimento] ||= nil,
-        Especificacao: args[:especificacao] ||= nil,
-        Assuntos: nil,
-        Interessados: args[:interessado] ||= nil,
-        Observacao: args[:observacao] ||= nil,
-        NivelAcesso: args[:nivel_acesso] ||= nil
+        :id_tipo_procedimento => args[:id_tipo_procedimento] ||= nil,
+        :especificacao => args[:especificacao] ||= nil,
+        :assuntos => nil,
+        :interessados => args[:interessado] ||= nil,
+        :observacao => args[:observacao] ||= nil,
+        :nivel_acesso => args[:nivel_acesso] ||= nil
       }
     
       params = {
-        Sistema: @sigla,
-        SiglaSistema: @sigla,
-        IdentificacaoServico: @servico,
-        IdUnidade: args[:id_unidade] ||= nil,
-        Procedimento: procedimento_params,
-        Documentos: nil,
-        ProcedimentosRelacionados: nil,
-        UnidadesEnvio: nil,
-        SinManterAbertoUnidade: 'S',
-        SinEnviarEmailNotificacao: 'N',
-        DataRetornoProgramado: nil,
-        DiasRetornoProgramado: nil,
-        SinDiasUteisRetornoProgramado: nil,
+        :sigla_sistema => @sigla,
+        :identificacaoServico => @servico,
+        :id_unidade => args[:id_unidade] ||= nil,
+        :procedimento => procedimento_params,
+        :documentos => nil,
+        :procedimentos_relacionados => nil,
+        :unidades_envio => nil,
+        :sin_manter_aberto_unidade => 'S',
+        :sin_enviar_email_notificacao => 'N',
+        :data_retorno_programado => nil,
+        :dias_retorno_programado => nil,
+        :sin_dias_uteis_retorno_programado => nil,
       }
       byebug
       @response = client.call(:gerar_procedimento, message: params)
@@ -52,28 +51,27 @@ module SeiWebservice
 
     def incluir_documento(args = {})
       documento_params = {
-        Tipo: args[:tipo] ||= nil,
-        IdProcedimento: args[:id_procedimento] ||= nil,
-        IdSerie: args[:id_serie] ||= nil,
-        Numero: args[:numero] ||= nil,
-        Data: args[:data] ||= nil,
-        Descricao: args[:descricao] ||= nil,
-        Remetente: args[:remetente] ||= nil,
-        Interessados: nil,
-        Destinatarios: nil,
-        Observacao: args[:observacao] ||= nil,
-        NomeArquivo: args[:nome_arquivo] ||= nil,
-        Conteudo: args[:conteudo] ||= nil,
-        #ConteudoMTOM: args[:conteudo_mtom] ||= nil,
-        NivelAcesso: args[:nivel_acesso] ||= nil,
+        :tipo => args[:tipo] ||= nil,
+        :id_procedimento => args[:id_procedimento] ||= nil,
+        :id_serie => args[:id_serie] ||= nil,
+        :numero => args[:numero] ||= nil,
+        :data => args[:data] ||= nil,
+        :descricao => args[:descricao] ||= nil,
+        :remetente => args[:remetente] ||= nil,
+        :interessados => nil,
+        :destinatarios => nil,
+        :observacao => args[:observacao] ||= nil,
+        :nome_arquivo => args[:nome_arquivo] ||= nil,
+        :conteudo => args[:conteudo] ||= nil,
+        #ConteudoMTOM => args[:conteudo_mtom] ||= nil,
+        :nivel_acesso => args[:nivel_acesso] ||= nil,
       }
 
       params = {
-        SiglaSistema: @sigla,
-        Sistema: @sigla,
-        IdentificacaoServico: @servico,
-        IdUnidade: args[:id_unidade] ||= nil,
-        Documento: documento_params
+        :sigla_sistema => @sigla,
+        :identificacaoServico => @servico,
+        :id_unidade => args[:id_unidade] ||= nil,
+        :documento => documento_params
       }
 
       @response = client.call(:incluir_documento, message: params)
