@@ -32,7 +32,7 @@ module SeiWebservice
         :dias_retorno_programado => nil,
         :sin_dias_uteis_retorno_programado => nil,
       }
-      byebug
+      
       @response = client.call(:gerar_procedimento, message: params)
       @response_format = SeiWebservice::Format.gerar_procedimento(@response.body)
     end
